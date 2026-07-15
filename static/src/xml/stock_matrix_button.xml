@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="purple_stock_matrix.StockMatrixButton">
+        <div class="o_field_widget">
+            <button class="btn btn-primary" t-on-click="openMatrixDialog">
+                📦 Open Matrix
+            </button>
+        </div>
+    </t>
+</templates>

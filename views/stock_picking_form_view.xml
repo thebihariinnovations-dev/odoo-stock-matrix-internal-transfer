@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="stock_picking_form_inherit_matrix" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit.matrix</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='scheduled_date']" position="after">
+                <field name="grid" invisible="1"/>
+                <field name="grid_update" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='move_ids']" position="before">
+                <div invisible="picking_type_code != 'internal'" class="d-flex align-items-center gap-3 mb-3">
+                    <field name="grid_product_tmpl_id"
+                           string="Select Product"
+                           options="{'no_create': True}"
+                           placeholder="Select product template..."
+                           style="width: 300px; min-width: 300px; max-width: 300px;"/>
+                    <field name="grid_product_tmpl_id"
+                           widget="stock_matrix_button"
+                           nolabel="1"
+                           invisible="not grid_product_tmpl_id"/>
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
